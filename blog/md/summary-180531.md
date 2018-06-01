@@ -24,7 +24,7 @@ ArrayList<String> list = new ArrayList(Arrays.asList("a", "b", "c", "d"));
             }
         }
         System.out.println("after :" + list);
-``` 
+```
 上述代码结果不尽人意：
 
 ```
