@@ -1,3 +1,9 @@
+---
+title: JDK1.8中的Stream详解
+date: 2018-7-13 16:38:12
+categories: [开发,总结]
+tags: [Stream,Java]
+---
 > 别处看到的文章，对其再次进行了整理。收获很多。
 
 ## Stream简介
