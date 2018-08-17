@@ -21,8 +21,8 @@ Java7及以前我们可以用增强的for循环实现：
 ```
 // 使用曾强for循环迭代
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-for(String str : list){
-    if(str.length()>3)
+for(String str : list) {
+    if(str.length() > 3)
         System.out.println(str);
 }
 ```
@@ -30,10 +30,10 @@ for(String str : list){
 ```
 // 使用forEach()结合匿名内部类迭代
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-list.forEach(new Consumer<String>(){
+list.forEach(new Consumer<String>() {
     @Override
-    public void accept(String str){
-        if(str.length()>3)
+    public void accept(String str) {
+        if(str.length() > 3)
             System.out.println(str);
     }
 });
@@ -43,7 +43,7 @@ list.forEach(new Consumer<String>(){
 // 使用forEach()结合Lambda表达式迭代
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
 list.forEach( str -> {
-        if(str.length()>3)
+        if(str.length() > 3)
             System.out.println(str);
 });
 ```
@@ -59,8 +59,8 @@ list.forEach( str -> {
 // 使用迭代器删除列表元素
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
 Iterator<String> it = list.iterator();
-while(it.hasNext()){
-    if(it.next().length()>3) // 删除长度大于3的元素
+while(it.hasNext()) {
+    if(it.next().length() > 3) // 删除长度大于3的元素
         it.remove();
 }
 ```
@@ -68,10 +68,10 @@ while(it.hasNext()){
 ```
 // 使用removeIf()结合匿名名内部类实现
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-list.removeIf(new Predicate<String>(){ // 删除长度大于3的元素
+list.removeIf(new Predicate<String>() { // 删除长度大于3的元素
     @Override
-    public boolean test(String str){
-        return str.length()>3;
+    public boolean test(String str) {
+        return str.length() > 3;
     }
 });
 ```
@@ -79,7 +79,7 @@ list.removeIf(new Predicate<String>(){ // 删除长度大于3的元素
 ```
 // 使用removeIf()结合Lambda表达式实现
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-list.removeIf(str -> str.length()>3); // 删除长度大于3的元素
+list.removeIf(str -> str.length() > 3); // 删除长度大于3的元素
 ```
 使用Lambda表达式不需要记住`Predicate`接口名，也不需要记住`test()`方法名，只需要知道此处需要返回一个boolean类型的Lambda表达式就行了。
 
@@ -102,10 +102,10 @@ for (int i=0; i<list.size(); i++) {
 ```
 // 使用匿名内部类实现
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-list.replaceAll(new UnaryOperator<String>(){
+list.replaceAll(new UnaryOperator<String>() {
     @Override
-    public String apply(String str){
-        if(str.length()>3)
+    public String apply(String str) {
+        if(str.length() > 3)
             return str.toUpperCase();
         return str;
     }
@@ -116,7 +116,7 @@ list.replaceAll(new UnaryOperator<String>(){
 // 使用Lambda表达式实现
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
 list.replaceAll(str -> {
-    if(str.length()>3)
+    if(str.length() > 3)
         return str.toUpperCase();
     return str;
 });
@@ -131,9 +131,9 @@ list.replaceAll(str -> {
 ```
 // Collections.sort()方法
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-Collections.sort(list, new Comparator<String>(){
+Collections.sort(list, new Comparator<String>() {
     @Override
-    public int compare(String str1, String str2){
+    public int compare(String str1, String str2) {
         return str1.length() - str2.length();
     }
 });
@@ -142,7 +142,7 @@ Collections.sort(list, new Comparator<String>(){
 ```
 // List.sort()方法结合Lambda表达式
 ArrayList<String> list = new ArrayList<>(Arrays.asList("I", "love", "you", "too"));
-list.sort((str1, str2) -> str1.length()-str2.length());
+list.sort((str1, str2) -> str1.length() - str2.length());
 ```
 
 ### spliterator()
@@ -171,7 +171,7 @@ HashMap<Integer, String> map = new HashMap<>();
 map.put(1, "one");
 map.put(2, "two");
 map.put(3, "three");
-for(Map.Entry<Integer, String> entry : map.entrySet()){
+for(Map.Entry<Integer, String> entry : map.entrySet()) {
     System.out.println(entry.getKey() + "=" + entry.getValue());
 }
 ```
@@ -182,9 +182,9 @@ HashMap<Integer, String> map = new HashMap<>();
 map.put(1, "one");
 map.put(2, "two");
 map.put(3, "three");
-map.forEach(new BiConsumer<Integer, String>(){
+map.forEach(new BiConsumer<Integer, String>() {
     @Override
-    public void accept(Integer k, String v){
+    public void accept(Integer k, String v) {
         System.out.println(k + "=" + v);
     }
 });
@@ -211,9 +211,9 @@ map.put(1, "one");
 map.put(2, "two");
 map.put(3, "three");
 // Java7以及之前做法
-if(map.containsKey(4)){ // 1
+if (map.containsKey(4)) { // 1
     System.out.println(map.get(4));
-}else{
+} else {
     System.out.println("NoValue");
 }
 // Java8使用Map.getOrDefault()
@@ -244,7 +244,7 @@ HashMap<Integer, String> map = new HashMap<>();
 map.put(1, "one");
 map.put(2, "two");
 map.put(3, "three");
-for(Map.Entry<Integer, String> entry : map.entrySet()){
+for(Map.Entry<Integer, String> entry : map.entrySet()) {
     entry.setValue(entry.getValue().toUpperCase());
 }
 ```
@@ -255,9 +255,9 @@ HashMap<Integer, String> map = new HashMap<>();
 map.put(1, "one");
 map.put(2, "two");
 map.put(3, "three");
-map.replaceAll(new BiFunction<Integer, String, String>(){
+map.replaceAll(new BiFunction<Integer, String, String>() {
     @Override
-    public String apply(Integer k, String v){
+    public String apply(Integer k, String v) {
         return v.toUpperCase();
     }
 });
@@ -301,9 +301,9 @@ map.compute(key, (k, v) -> v == null ? newMsg : v.concat(newMsg));
 ```
 Map<Integer, Set<String>> map = new HashMap<>();
 // Java7及以前的实现方式
-if(map.containsKey(1)){
+if (map.containsKey(1)){
     map.get(1).add("one");
-}else{
+} else {
     Set<String> valueSet = new HashSet<String>();
     valueSet.add("one");
     map.put(1, valueSet);
