@@ -1,7 +1,7 @@
 ---
 title: MySQL 中 MyISAM 和 InnoDB 存储引擎的区别
 date: 2019-2-11 10:20:42
-categories: [开发,总结]
+categories: [开发,数据库]
 tags: [MySQL]
 ---
 
